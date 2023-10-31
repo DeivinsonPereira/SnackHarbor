@@ -1,14 +1,12 @@
 package com.snackharbor.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -31,13 +29,11 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private Double price;
+	private BigDecimal price;
 	
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
-	@ManyToMany(mappedBy = "consumption")
-	private List<CustomerTable> tables = new ArrayList<>();
 	
 }
