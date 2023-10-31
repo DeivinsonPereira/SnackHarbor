@@ -1,4 +1,4 @@
-package com.snackharbor.entities;
+package com.snackharbor.entities.enums;
 
 public enum Status {
 
