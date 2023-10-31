@@ -1,10 +1,91 @@
 INSERT INTO tb_category(name) VALUES ('Lanches');
 INSERT INTO tb_category(name) VALUES ('Pizzas');
 INSERT INTO tb_category(name) VALUES ('Massas');
-INSERT INTO tb_category(name) VALUES ('Carnes');
 INSERT INTO tb_category(name) VALUES ('Veganos');
 INSERT INTO tb_category(name) VALUES ('Porções');
 INSERT INTO tb_category(name) VALUES ('Bebidas');
+
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Frango', 24.50, 'https://img.freepik.com/fotos-gratis/sanduiche-grande-hamburguer-hamburguer-com-carne-cebola-roxa-tomate-e-bacon-frito_2829-5398.jpg?w=900&t=st=1698787584~exp=1698788184~hmac=775753488c1c8f11c95ee67b1634722f5f2fc637b6887dcef1cbb7447415e65e',1);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Salada', 20.00, 'https://img.freepik.com/fotos-gratis/hamburguer-saboroso-isolado-no-fundo-branco-fastfood-de-hamburguer-fresco-com-carne-e-queijo_90220-1063.jpg?w=740&t=st=1698787674~exp=1698788274~hmac=2683ff545ddd7b941f71b371eb29c8ad7e97a32dfe38a8a2c946cd3a0e400797',1);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Bacon', 26.00, 'https://img.freepik.com/fotos-gratis/cheeseburguer-gourmet-grelhado-em-mesa-de-madeira-rustica-gerada-por-ia_188544-25131.jpg?w=1380&t=st=1698787792~exp=1698788392~hmac=d77188b54053366ca1cb0248ebc711dc168fb1b0e3fbc93b1fd30c56647b1e82',1);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Tudo', 32.00, 'https://img.freepik.com/fotos-gratis/hamburguer-de-vista-frontal-em-um-carrinho_141793-15542.jpg?w=1380&t=st=1698787752~exp=1698788352~hmac=0e5a124fd527508d550d5c791e561f4537ea0c45a4e35fefa316df67b2259d69',1);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Simples', 18.00, 'https://img.freepik.com/fotos-gratis/hamburguer-isolado-no-fundo-branco-fastfood-de-hamburguer-fresco-com-carne-e-queijo_90220-1329.jpg?w=740&t=st=1698787933~exp=1698788533~hmac=170ceea6ed44e61d7187839df50fc3010debcbc5901acf529518cb62bcf7707e',1);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Duplo', 22.00, 'https://br.freepik.com/fotos-gratis/vista-lateral-duplo-cheeseburger-com-rissois-de-carne-grelhada-queijo-e-folha-de-alface-entre-bolos-de-hamburguer_8196280.htm#query=burguer%20duplo&position=11&from_view=search&track=ais',1);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Pizza Calaresa', 35.00, 'https://img.freepik.com/fotos-gratis/pizza-gourmet-recem-assada-em-mesa-de-madeira-rustica-gerada-por-ia_188544-18731.jpg?w=1380&t=st=1698788180~exp=1698788780~hmac=4556f77e80d3372af3e859f7637fedbe20d7887f946f06860450711b936980fc',2);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Pizza Champignon', 32.00, 'https://img.freepik.com/fotos-gratis/pizza-margherita-grelhada-com-molho-de-tomate-queijo-manjericao-e-cogumelo_23-2147926077.jpg?w=1380&t=st=1698788228~exp=1698788828~hmac=3ac1a6ecd2c1a993eb359ed4b841091e56e017cf0d4e386c5088ca44747d9cc7',2);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Pizza Bacon', 37.00, 'https://img.freepik.com/fotos-gratis/pizza-havaiana_74190-2500.jpg?w=1380&t=st=1698788334~exp=1698788934~hmac=400de3fdd044c3490082a0f62b78a9a94297a4b370de454111a0d388a60fcb75',2);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Pizza Frutos do Mar', 45.00, 'https://img.freepik.com/fotos-gratis/pizza-de-frutos-do-mar_74190-5944.jpg?w=1380&t=st=1698788492~exp=1698789092~hmac=b6ab10cca50d500007dd41c02ad6d77c78d01c939ea9e1874268c8ffd7d357c2',2);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Pizza 4 Queijos', 35.00, 'https://img.freepik.com/fotos-gratis/queijo-georgiano-khachapuri-imeruli-comida-tradicional-da-georgia-khachapuri-quente_114579-140.jpg?w=740&t=st=1698788286~exp=1698788886~hmac=9737e401c1189db1a194a7460ebb2d42bccf2c2efa313dd3ea9e86c3abd6e287',2);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Pizza Marguerita', 33.00, 'https://images.pexels.com/photos/13814644/pexels-photo-13814644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',2);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Macarrão Com Camarão', 25.00, 'https://img.freepik.com/fotos-gratis/detalhe-de-refeicao-de-massa-rica-em-proteinas_23-2149098857.jpg?w=740&t=st=1698789216~exp=1698789816~hmac=e57fa8877e03c80e2908d498f88bee02c5c3474c1f749a615d6132722c110f7b',3);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Macarrão Carbonara', 25.00, 'https://img.freepik.com/fotos-gratis/massas-gastronomia-gastronomia-yummy_1350-66.jpg?w=1380&t=st=1698789346~exp=1698789946~hmac=571c3f987d7da1560602d55c6cd10412e7b748a51f801a1460f750bb5d738906',3);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Macarrão a Bolonhesa', 25.00, 'https://img.freepik.com/fotos-gratis/fettuccine-caseiro-com-molho-a-bolonhesa-e-parmesao-gerado-por-ia_188544-16140.jpg?w=1380&t=st=1698789280~exp=1698789880~hmac=e7ebbc5748692223f24eab94ffaafc31ff0eb9dfc80665a0cbecba5d9a988ab0',3);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Nhoque', 22.00, 'https://img.freepik.com/fotos-gratis/sobremesa-caseira-indulgente-na-mesa-de-madeira-escura-gerada-por-ia_188544-18063.jpg?w=1380&t=st=1698789381~exp=1698789981~hmac=5ff70733841ec0eff30648b204fe9ce445f74eec38113c46d23a09c71796d6de',3);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Burger Vegano', 22.00, 'https://img.freepik.com/fotos-gratis/hamburgueres-close-up-na-bandeja_23-2148678841.jpg?w=740&t=st=1698787826~exp=1698788426~hmac=ad44203ec6f9d5f33a9b1d92d3ed09e83c6de76e00187e0b0f955fb21b703f93',4);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Lasanha Vegana', 24.00, 'https://img.freepik.com/fotos-gratis/torta-com-carne_155003-356.jpg?w=1380&t=st=1698789490~exp=1698790090~hmac=de1ac28a21bbb0083fa13d05fb1661ba6756a10ccf4a4c77e2e90cb4db516ead',4);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Lasanha Carne de Soja', 22.00, 'https://img.freepik.com/fotos-gratis/lasanha-classica-com-molho-a-bolonhesa_2829-14066.jpg?w=740&t=st=1698789539~exp=1698790139~hmac=8730c0ec6743091a61e1f3622bbd62e9726c8696847728d79fe1e4725675daae',4);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Batata Recheada', 17.00, 'https://img.freepik.com/fotos-gratis/batata-doce-deliciosa-de-alto-angulo_23-2148619066.jpg?w=740&t=st=1698789646~exp=1698790246~hmac=003032560dcd239e06f242fc226fdc29da5e3d8d492e5bac0f729bd97e9cbaa3',4);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Sopa', 18.00, 'https://img.freepik.com/fotos-gratis/sopa-de-lentilha-com-ingredientes-misturados-e-ervas-em-uma-tigela-branca-com-uma-colher_114579-3083.jpg?w=1380&t=st=1698789666~exp=1698790266~hmac=fc17fa6f14b71600acc9201f4d99df8c4867618360427dfe15a8b1f1957e3f17',4);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Feijoada Vegana', 27.00, 'https://img.freepik.com/fotos-gratis/ragu-de-guisado-de-lentilha-com-abobora-e-cenoura-em-tigela-na-mesa-de-madeira_123827-20881.jpg?w=740&t=st=1698789701~exp=1698790301~hmac=b5f7229c4f9fd22cf1d1f5b2c5c5e5fe1a5f740657868ca841cdaa7e6662afb6',4);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Fritas', 30.00, 'https://img.freepik.com/fotos-gratis/imagem-gerada-por-ia-do-prato-de-batatas-fritas_268835-5036.jpg?w=1380&t=st=1698790001~exp=1698790601~hmac=c4da2c53d2e8b6f6489ef59fc55e473f96d19e2c21a16b9637b4e9358c2ebedd',5);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Fritas Com Bacon', 35.00, 'https://images.pexels.com/photos/13998988/pexels-photo-13998988.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',5);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Fritas com Frango', 35.00, 'https://img.freepik.com/fotos-gratis/fritado-frances-frita-branca-prato_1203-7547.jpg?w=740&t=st=1698789985~exp=1698790585~hmac=130ff47d53a8fca866412abd337fcce56454349c07bbbcedd74f9db7fac188ab',5);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Frango Assado', 28.00, 'https://img.freepik.com/fotos-gratis/asas-de-frango-assadas-no-estilo-asiatico_2829-10159.jpg?w=1380&t=st=1698790114~exp=1698790714~hmac=61bcde974db6f5ee67b7b33c92a47ee216193a226ba77568d1f2bb3dcd88f3d1',5);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Frango Frito', 28.00, 'https://img.freepik.com/fotos-gratis/frango-frito-crocante-em-uma-tabua-de-madeira_1150-20220.jpg?w=1380&t=st=1698789923~exp=1698790523~hmac=3ca92eaa12b7bdbd869c37fed38128d96e42ef25725075dcac633fb2e9866025',5);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Croquetes', 22.00, 'https://img.freepik.com/fotos-gratis/deliciosos-croquetes-de-comida-em-uma-tigela_23-2149202673.jpg?w=1380&t=st=1698789898~exp=1698790498~hmac=aafde8bd185fae82ca35e7bc38a24b4849e4110287d7f9f0682437eb9776e11f',5);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Refrigerante', 7.50, 'https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',6);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Vinho', 78.00, 'https://img.freepik.com/fotos-gratis/copo-de-vinho-tinto-no-balcao-de-bar_107420-65844.jpg?w=740&t=st=1698790333~exp=1698790933~hmac=433dab96201c23298f6436cb34abba913d452e892193f2cd17a85bcae5b80fc2',6);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Suco', 9.00, 'https://img.freepik.com/fotos-gratis/suco-de-laranja-fresco-no-copo-em-fundo-escuro_1150-45560.jpg?w=1380&t=st=1698790357~exp=1698790957~hmac=a0c853411b67a8e44bc14b7fcf0611f3239e2e7050ce0759909c1a079ce70072',6);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('caipirinha', 15.00, 'https://img.freepik.com/fotos-gratis/bebida-deliciosa-com-folhas-de-hortela_23-2148751852.jpg?w=1060&t=st=1698790381~exp=1698790981~hmac=9f02cdee5ec26092ef4b21eb18f3f51ae12cd5003d8a8b2f9eb0460cb60afc1a',6);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Wisk', 16.00, 'https://img.freepik.com/fotos-gratis/uisque-com-gelo-fundo-preto_53876-97253.jpg?w=740&t=st=1698790403~exp=1698791003~hmac=cc0ac2f32787f398fbe94ada0a73912311bfc84fa8e6de54ed1fb99b6616ea2c',6);
+INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('Agua', 7.00, 'https://img.freepik.com/fotos-gratis/vidro-transparente-com-agua_23-2148795911.jpg?w=740&t=st=1698790425~exp=1698791025~hmac=3911ac238b94966061928fd8f8abe4274fe614cac16f3b81a0c2588576437960',6);
+
+INSERT INTO tb_table(status) VALUES (0);
+INSERT INTO tb_table(status) VALUES (2);
+INSERT INTO tb_table(status) VALUES (1);
+INSERT INTO tb_table(status) VALUES (0);
+INSERT INTO tb_table(status) VALUES (1);
+INSERT INTO tb_table(status) VALUES (1);
+INSERT INTO tb_table(status) VALUES (2);
+INSERT INTO tb_table(status) VALUES (0);
+INSERT INTO tb_table(status) VALUES (0);
+INSERT INTO tb_table(status) VALUES (1);
+INSERT INTO tb_table(status) VALUES (0);
+INSERT INTO tb_table(status) VALUES (2);
+
+
+INSERT INTO tb_order(table_id, product_id) VALUES (2, 1);
+INSERT INTO tb_order(table_id, product_id) VALUES (2, 3);
+INSERT INTO tb_order(table_id, product_id) VALUES (2, 31);
+INSERT INTO tb_order(table_id, product_id) VALUES (2, 29);
+INSERT INTO tb_order(table_id, product_id) VALUES (3, 13);
+INSERT INTO tb_order(table_id, product_id) VALUES (3, 14);
+INSERT INTO tb_order(table_id, product_id) VALUES (3, 30);
+INSERT INTO tb_order(table_id, product_id) VALUES (5, 34);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 7);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 8);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 24);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 31);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 31);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 29);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 29);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 29);
+INSERT INTO tb_order(table_id, product_id) VALUES (6, 29);
+INSERT INTO tb_order(table_id, product_id) VALUES (7, 24);
+INSERT INTO tb_order(table_id, product_id) VALUES (7, 24);
+INSERT INTO tb_order(table_id, product_id) VALUES (7, 32);
+INSERT INTO tb_order(table_id, product_id) VALUES (7, 32);
+INSERT INTO tb_order(table_id, product_id) VALUES (7, 31);
+INSERT INTO tb_order(table_id, product_id) VALUES (10, 22);
+INSERT INTO tb_order(table_id, product_id) VALUES (10, 31);
+INSERT INTO tb_order(table_id, product_id) VALUES (10, 31);
+INSERT INTO tb_order(table_id, product_id) VALUES (12, 28);
+INSERT INTO tb_order(table_id, product_id) VALUES (12, 18);
+INSERT INTO tb_order(table_id, product_id) VALUES (12, 17);
+INSERT INTO tb_order(table_id, product_id) VALUES (12, 34);
+INSERT INTO tb_order(table_id, product_id) VALUES (12, 34);
+INSERT INTO tb_order(table_id, product_id) VALUES (12, 34);
+
 
 
  
