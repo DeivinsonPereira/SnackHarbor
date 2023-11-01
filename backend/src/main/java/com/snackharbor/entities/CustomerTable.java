@@ -1,10 +1,10 @@
 package com.snackharbor.entities;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,20 +31,11 @@ public class CustomerTable {
 	private Long id;
 	private Status status;
 	
-	@OneToMany(mappedBy = "table")
+	@OneToMany(mappedBy = "table", fetch = FetchType.EAGER)
 	private List<Order> orders = new ArrayList<>();
 	
 	@SuppressWarnings("unused")
 	private void setOrders(List<Product> orders) {}
-	
-	
-	public BigDecimal calculateTotal() {
-        BigDecimal total = BigDecimal.ZERO;
-        for (Order order : orders) {
-            total = total.add(order.getProduct().getPrice());
-        }
-        return total;
-    }
 	
 	
 }
