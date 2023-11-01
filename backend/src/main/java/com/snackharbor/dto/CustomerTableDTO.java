@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 
-public class TotalConsumptionDTO {
+public class CustomerTableDTO {
 
 	private Long id;
 	private Status status;
@@ -25,13 +25,13 @@ public class TotalConsumptionDTO {
 	
 	private List<OrderDTO> orders;
 	
-	public TotalConsumptionDTO (Long id, Status status, BigDecimal total) {
+	public CustomerTableDTO (Long id, Status status, BigDecimal total) {
 		this.id = id;
 		this.status = status;
 		this.total = total;
 	}
 	
-	public TotalConsumptionDTO (CustomerTable entity, BigDecimal totalValue) {
+	public CustomerTableDTO (CustomerTable entity, BigDecimal totalValue) {
 		this.id = entity.getId();
 		this.status = entity.getStatus();
 		this.total = totalValue;

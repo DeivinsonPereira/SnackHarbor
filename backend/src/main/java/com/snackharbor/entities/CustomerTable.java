@@ -35,7 +35,7 @@ public class CustomerTable {
 	private List<Order> orders = new ArrayList<>();
 	
 	@SuppressWarnings("unused")
-	private void setOrders(List<Product> orders) {}
+	private void setOrders(List<Order> orders) {}
 	
 	
 }

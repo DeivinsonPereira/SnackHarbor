@@ -3,11 +3,14 @@ package com.snackharbor.services;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.snackharbor.dto.TotalConsumptionDTO;
+import com.snackharbor.dto.CustomerTableDTO;
+import com.snackharbor.dto.UpdateStatusDTO;
 import com.snackharbor.entities.CustomerTable;
 import com.snackharbor.entities.Order;
 import com.snackharbor.entities.Product;
@@ -15,7 +18,8 @@ import com.snackharbor.entities.enums.Status;
 import com.snackharbor.repositories.CustomerTableRepository;
 import com.snackharbor.repositories.OrderRepository;
 import com.snackharbor.repositories.ProductRepository;
-import com.snackharbor.services.exceptions.NotFoundException;
+import com.snackharbor.services.exceptions.BusinessException;
+import com.snackharbor.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CustomerTableService {
@@ -30,33 +34,55 @@ public class CustomerTableService {
 	private OrderRepository orderRepository;
 	
 	@Transactional(readOnly=true)
-	public TotalConsumptionDTO totalConsumption(Long id) {
+	public CustomerTableDTO totalConsumption(Long id) {
         CustomerTable table = repository.findTableWithOrders(id);
         if (table == null) {
-            throw new NotFoundException("Error: resource not found!");
+            throw new ResourceNotFoundException("Error: resource not found!");
         }
         BigDecimal total = calculateTotal(table.getOrders());
-        return new TotalConsumptionDTO(table, total);
+        return new CustomerTableDTO(table, total);
     
 	}
 	
+	
+	@Transactional
 	public void addOrderToTable(Long tableId, Long productId) {
         CustomerTable table = repository.findById(tableId)
-            .orElseThrow(() -> new NotFoundException("Table not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("Table not found"));
 
         if (table.getStatus() == Status.OCCUPIED || table.getStatus() == Status.FREE) {
             Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new NotFoundException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
 
             Order order = new Order();
             order.setTable(table);
             order.setProduct(product);
             
             table.getOrders().add(order);
+            
+            if (table.getStatus() == Status.FREE) {
+                table.setStatus(Status.OCCUPIED);
+                repository.save(table);
+            }
 
             orderRepository.save(order);
-        }
+        
+        }else {
+				throw new BusinessException("Table is closed");
+		}
     }
+	
+	@Transactional
+	public UpdateStatusDTO updateStatus(Long tableId, UpdateStatusDTO dto) {
+		try {
+			CustomerTable entity = repository.getReferenceById(tableId);
+			entity.setStatus(dto.getStatus());
+			return new UpdateStatusDTO(entity);
+		}catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("An unexpected error occurred.");
+		}
+		
+	}
 	
 	
 	private BigDecimal calculateTotal(List<Order> orders) {

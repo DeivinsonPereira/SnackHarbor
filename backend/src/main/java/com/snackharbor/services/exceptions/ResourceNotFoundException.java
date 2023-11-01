@@ -1,10 +1,10 @@
 package com.snackharbor.services.exceptions;
 
-public class NotFoundException extends RuntimeException {
+public class ResourceNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 	
-	public NotFoundException(String msg) {
+	public ResourceNotFoundException(String msg) {
 		super(msg);
 	}
 }
