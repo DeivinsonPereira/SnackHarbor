@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
-import 'package:frontend/pages/config/config_page.dart';
+import 'package:frontend/pages/consumption/consumption_page.dart';
 import 'package:frontend/pages/home/home_page.dart';
 import 'package:frontend/pages/items/items_Page.dart';
 import 'package:frontend/pages/login/login_page.dart';
@@ -25,8 +25,8 @@ class AppWidget extends StatelessWidget {
       routes: {
         '/': (context) => const LoginPage(),
         '/home': (context) => HomePage(),
-        '/categorias': (context) => ItemsPage(),
-        '/consumo': (context) => ConfigPage(),
+        '/items': (context) => ItemsPage(),
+        '/consumption': (context) => ConsumptionPage(),
       },
     );
   }

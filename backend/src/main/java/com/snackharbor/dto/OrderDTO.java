@@ -15,7 +15,7 @@ public class OrderDTO {
 
 	private Long id;
 	private Long tableId;
-	private ProductDTO product;
+	private MinProductDTO product;
 	
 	public OrderDTO(Order entity) {
         this.id = entity.getId();
@@ -23,7 +23,7 @@ public class OrderDTO {
             this.tableId = entity.getTable().getId();
         }
         if (entity.getProduct() != null) {
-            this.product = new ProductDTO(entity.getProduct().getId(), entity.getProduct().getName(), entity.getProduct().getPrice());
+            this.product = new MinProductDTO(entity.getProduct().getId(), entity.getProduct().getName(), entity.getProduct().getPrice());
         }
     }
 	

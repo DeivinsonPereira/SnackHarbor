@@ -25,34 +25,37 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _paginas.elementAt(_index),
-        bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _index,
-            onTap: (index) {
-              _index = index;
-              setState(() {});
-            },
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_sharp),
-                label: 'Start',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.apps_sharp),
-                label: 'Tables',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.inventory),
-                label: 'Items',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Config',
-              ),
-            ],),);
+      body: _paginas.elementAt(_index),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _index,
+        onTap: (index) {
+          _index = index;
+          setState(() {});
+        },
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_sharp),
+            label: 'Inicio',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.apps_sharp),
+            label: 'Mesas',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.inventory),
+            label: 'Itens',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Config',
+          ),
+        ],
+      ),
+    );
   }
 }
+
 class CustomButton extends StatelessWidget {
   final String texto;
 

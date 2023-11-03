@@ -9,6 +9,7 @@ StatusMesa statusStringToEnum(String statusString) {
   return statusEnum ?? StatusMesa.FREE;
 }
 
+// ignore: constant_identifier_names
 enum StatusMesa { OCCUPIED, FREE, CLOSING }
 
 Color statusToColor(String statusTable) {
@@ -51,9 +52,9 @@ class ItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (status == StatusMesa.FREE) {
-          Navigator.of(context).pushNamed('/categorias', arguments: index);
+          Navigator.of(context).pushNamed('/items', arguments: index);
         } else {
-          Navigator.of(context).pushNamed('/consumo', arguments: index);
+          Navigator.of(context).pushNamed('/consumption', arguments: index);
         }
       },
       child: Container(
