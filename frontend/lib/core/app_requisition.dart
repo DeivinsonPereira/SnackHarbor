@@ -20,3 +20,13 @@ Future<List<dynamic>> getTables() async {
     throw Exception('Tables not Found.');
   }
 }
+
+Future<List<dynamic>> getCategories() async {
+  var url = Uri.parse('http://10.0.2.2:8080/categories');
+  var response = await http.get(url);
+  if (response.statusCode == 200) {
+    return jsonDecode(utf8.decode(response.bodyBytes));
+  } else {
+    throw Exception('Categories not Found.');
+  }
+}

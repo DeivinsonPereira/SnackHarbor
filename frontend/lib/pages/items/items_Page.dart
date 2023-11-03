@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/core/app_images.dart';
+import 'package:frontend/core/app_requisition.dart';
 import 'package:frontend/core/app_textStyles.dart';
 
 class ItemsPage extends StatelessWidget {
-  final int numeroMesa;
-  const ItemsPage({super.key, required this.numeroMesa});
+  const ItemsPage({super.key});
 
-_buildCard(String title, String image) {
+  _buildCard(String title, String image) {
     return Stack(children: [
       Container(
         width: 155,
@@ -50,31 +51,49 @@ _buildCard(String title, String image) {
   }
 
   _buildBody() {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: GridView(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-        ),
-        children: <Widget>[
-          _buildCard('LANCHES', AppImages.categoria_lanches),
-          _buildCard('PIZZAS', AppImages.categoria_pizzas),
-          _buildCard('SALGADOS', AppImages.categoria_salgados),
-          _buildCard('PORÇÕES', AppImages.categoria_porcoes),
-          _buildCard('SOBREMESAS', AppImages.categoria_sobremesa),
-          _buildCard('BEBIDAS', AppImages.categoria_bebidas),
-        ],
-      ),
+    return FutureBuilder<List<dynamic>>(
+      future: getCategories(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return Center(
+            child: Text('Error: Unable to load data.'),
+          );
+        }
+        if (snapshot.hasData) {
+          return Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+              ),
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                final String name = snapshot.data![index]['name'];
+                final String imgUrl = snapshot.data![index]['imgUrl'];
+                return _buildCard(name, imgUrl);
+              },
+            ),
+          );
+        }
+        return const Center(child: Text('Data not found'));
+      },
     );
   }
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Items Page')),
+      appBar: AppBar(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
+        ),
+        centerTitle: true,
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text('Categorias'),
+      ),
+      body: _buildBody(),
     );
   }
 }

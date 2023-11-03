@@ -1,9 +1,9 @@
-INSERT INTO tb_category(name, img_Url) VALUES ('Lanches', 'https://cdn.pixabay.com/photo/2014/10/19/20/59/hamburger-494706_1280.jpg');
-INSERT INTO tb_category(name, img_Url) VALUES ('Pizzas', 'https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg');
-INSERT INTO tb_category(name, img_Url) VALUES ('Massas', 'https://img.freepik.com/fotos-gratis/massa-italiana-autentica_24972-2334.jpg?w=1380&t=st=1698975860~exp=1698976460~hmac=016d7204add9f76ca615819b2431dc2430d30e1bdb4233b66b9bca795bce983a');
-INSERT INTO tb_category(name, img_Url) VALUES ('Veganos', 'https://img.freepik.com/fotos-gratis/torta-com-carne_155003-356.jpg?w=1380&t=st=1698975919~exp=1698976519~hmac=1a9fb0a1ec847729717a862688f71108681456781033de66b142f353186eeca4');
-INSERT INTO tb_category(name, img_Url) VALUES ('Porções', 'https://img.freepik.com/fotos-gratis/croquetes-de-frango-servidos-com-batatas-fritas-na-bandeja-de-madeira-e-salada-fresca_140725-10466.jpg?w=740&t=st=1698975949~exp=1698976549~hmac=04bd5f7a58291b7d15da2c265571635261cb0f29d5143803fe6175593a054812');
-INSERT INTO tb_category(name, img_Url) VALUES ('Bebidas', 'https://cdn.pixabay.com/photo/2016/06/29/17/14/drink-1487304_1280.jpg');
+INSERT INTO tb_category(name, img_Url) VALUES ('Lanches', 'https://images.pexels.com/photos/580612/pexels-photo-580612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+INSERT INTO tb_category(name, img_Url) VALUES ('Pizzas', 'https://images.pexels.com/photos/10836977/pexels-photo-10836977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+INSERT INTO tb_category(name, img_Url) VALUES ('Massas', 'https://images.pexels.com/photos/18866156/pexels-photo-18866156/free-photo-of-tigela-bowl-bacia-fotografia-de-alimentos.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+INSERT INTO tb_category(name, img_Url) VALUES ('Veganos', 'https://images.pexels.com/photos/4162496/pexels-photo-4162496.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+INSERT INTO tb_category(name, img_Url) VALUES ('Porções', 'https://images.pexels.com/photos/1893556/pexels-photo-1893556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+INSERT INTO tb_category(name, img_Url) VALUES ('Bebidas', 'https://images.pexels.com/photos/338713/pexels-photo-338713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
 
 INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Frango', 24.50, 'https://img.freepik.com/fotos-gratis/sanduiche-grande-hamburguer-hamburguer-com-carne-cebola-roxa-tomate-e-bacon-frito_2829-5398.jpg?w=900&t=st=1698787584~exp=1698788184~hmac=775753488c1c8f11c95ee67b1634722f5f2fc637b6887dcef1cbb7447415e65e',1);
 INSERT INTO tb_product(name, price, img_Url, category_id) VALUES ('X-Salada', 20.00, 'https://img.freepik.com/fotos-gratis/hamburguer-saboroso-isolado-no-fundo-branco-fastfood-de-hamburguer-fresco-com-carne-e-queijo_90220-1063.jpg?w=740&t=st=1698787674~exp=1698788274~hmac=2683ff545ddd7b941f71b371eb29c8ad7e97a32dfe38a8a2c946cd3a0e400797',1);
