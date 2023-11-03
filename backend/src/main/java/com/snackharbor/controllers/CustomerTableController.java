@@ -1,5 +1,7 @@
 package com.snackharbor.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,12 @@ public class CustomerTableController {
 
 	@Autowired
     private CustomerTableService service;
+	
+	@GetMapping
+    public List<CustomerTableDTO> totalConsumptionForAllTables() {
+        return service.totalConsumptionForAllTables();
+    }
+	
 
 	@GetMapping("/{tableId}/total")
     public ResponseEntity<CustomerTableDTO> totalConsumption(@PathVariable Long tableId) {
@@ -48,4 +56,5 @@ public class CustomerTableController {
 		service.updateStatus(tableId, dto);
 		return ResponseEntity.ok().build();
 	}
+	
 }

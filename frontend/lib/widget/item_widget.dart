@@ -1,19 +1,90 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
+import 'package:frontend/core/app_textStyles.dart';
 
-enum StatusMesa { ocupada, livre, fechamento }
+StatusMesa statusStringToEnum(String statusString) {
+  statusString = statusString[0].toUpperCase() + statusString.substring(1);
+  final statusEnum = EnumToString.fromString(StatusMesa.values, statusString);
+  return statusEnum ?? StatusMesa.FREE;
+}
 
-Color statusToColor(StatusMesa value) {
-  Color cor = AppColors.statusMesaLivre;
-  switch (value) {
-    case StatusMesa.livre:
-      break;
-    case StatusMesa.ocupada:
-      cor = AppColors.statusMesaOcupada;
-      break;
-    case StatusMesa.fechamento:
-      cor = AppColors.statusMesaFechamento;
-      break;
+enum StatusMesa { OCCUPIED, FREE, CLOSING }
+
+Color statusToColor(String statusTable) {
+  switch (statusTable.toLowerCase()) {
+    case "free":
+      return AppColors.statusMesaLivre;
+    case "occupied":
+      return AppColors.statusMesaOcupada;
+    case "closing":
+      return AppColors.statusMesaFechamento;
+    default:
+      return AppColors.statusMesaLivre;
   }
-  return cor;
+}
+
+String statusToString(StatusMesa value) {
+  switch (value) {
+    case StatusMesa.FREE:
+      return 'Livre';
+    case StatusMesa.OCCUPIED:
+      return 'Ocupada';
+    case StatusMesa.CLOSING:
+      return 'Fechamento';
+  }
+}
+
+class ItemWidget extends StatelessWidget {
+  final StatusMesa status;
+  final int index;
+  final double valor;
+  ItemWidget({
+    super.key,
+    required this.status,
+    required this.index,
+    required this.valor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (status == StatusMesa.FREE) {
+          Navigator.of(context).pushNamed('/categorias', arguments: index);
+        } else {
+          Navigator.of(context).pushNamed('/consumo', arguments: index);
+        }
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: statusToColor(EnumToString.convertToString(status)),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(8),
+            ),
+            boxShadow: const [
+              BoxShadow(
+                offset: Offset(2, 2),
+                color: Colors.black,
+                blurRadius: 4.0,
+              ),
+            ]),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(
+            statusToString(status),
+            style: AppTextStyles.statusMesa,
+          ),
+          Text(
+            '${(index + 1).toString().padLeft(2, '0')}',
+            style: AppTextStyles.numeroMesa,
+          ),
+          if (valor != 0.0)
+            Text(
+              '${valor.toStringAsFixed(2)}',
+              style: AppTextStyles.valorMesa,
+            ),
+        ]),
+      ),
+    );
+  }
 }

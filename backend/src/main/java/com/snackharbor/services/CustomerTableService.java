@@ -1,6 +1,7 @@
 package com.snackharbor.services;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
@@ -32,6 +33,26 @@ public class CustomerTableService {
 	
 	@Autowired
 	private OrderRepository orderRepository;
+	
+	public List<CustomerTableDTO> totalConsumptionForAllTables() {
+        List<CustomerTable> tables = repository.findAll();
+        if(tables != null) {
+        List<CustomerTableDTO> tableDTOs = new ArrayList<>();
+
+        for (CustomerTable table : tables) {
+            BigDecimal total = calculateTotal(table.getOrders());
+            CustomerTableDTO tableDTO = new CustomerTableDTO(table, total);
+            tableDTOs.add(tableDTO);
+        }
+
+        return tableDTOs;
+        }else {
+        	throw new ResourceNotFoundException("Tables not found!");
+        }
+        
+    }
+	
+	
 	
 	@Transactional(readOnly=true)
 	public CustomerTableDTO totalConsumption(Long id) {
