@@ -34,6 +34,7 @@ public class CustomerTableService {
 	@Autowired
 	private OrderRepository orderRepository;
 	
+	@Transactional(readOnly = true)
 	public List<CustomerTableDTO> totalConsumptionForAllTables() {
         List<CustomerTable> tables = repository.findAll();
         if(tables != null) {
@@ -104,6 +105,12 @@ public class CustomerTableService {
 		}
 		
 	}
+	
+	public void deleteAllOrdersForTable(Long tableId) {
+        
+        List<Order> orders = orderRepository.findByTableId(tableId);
+        orderRepository.deleteAll(orders);
+    }
 	
 	
 	private BigDecimal calculateTotal(List<Order> orders) {

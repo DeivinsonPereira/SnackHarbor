@@ -2,6 +2,7 @@ import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
 import 'package:frontend/core/app_textStyles.dart';
+import 'package:frontend/pages/consumption/consumption_page.dart';
 
 StatusMesa statusStringToEnum(String statusString) {
   statusString = statusString[0].toUpperCase() + statusString.substring(1);
@@ -52,9 +53,14 @@ class ItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (status == StatusMesa.FREE) {
-          Navigator.of(context).pushNamed('/items', arguments: index);
+          Navigator.of(context).pushNamed('/category', arguments: index);
         } else {
-          Navigator.of(context).pushNamed('/consumption', arguments: index);
+          final mesaId = index;
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => ConsumptionPage(tableId: mesaId + 1),
+            ),
+          );
         }
       },
       child: Container(

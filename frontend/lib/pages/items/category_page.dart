@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/core/app_images.dart';
 import 'package:frontend/core/app_requisition.dart';
 import 'package:frontend/core/app_textStyles.dart';
 
-class ItemsPage extends StatelessWidget {
-  const ItemsPage({super.key});
+class CategoryPage extends StatelessWidget {
+  const CategoryPage({super.key});
 
   _buildCard(String title, String image) {
     return Stack(children: [
@@ -55,7 +54,7 @@ class ItemsPage extends StatelessWidget {
       future: getCategories(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Center(
+          return const Center(
             child: Text('Error: Unable to load data.'),
           );
         }
@@ -91,7 +90,10 @@ class ItemsPage extends StatelessWidget {
         ),
         centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text('Categorias'),
+        title: const Text(
+          'Categorias',
+          style: AppTextStyles.buttonTextOrange,
+        ),
       ),
       body: _buildBody(),
     );

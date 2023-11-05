@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_textStyles.dart';
 import 'package:frontend/pages/config/config_page.dart';
-import 'package:frontend/pages/items/items_Page.dart';
+import 'package:frontend/pages/items/category_page.dart';
 import 'package:frontend/pages/start/start_page.dart';
 import 'package:frontend/pages/table/table_page.dart';
 
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   final _paginas = <Widget>[
     StartPage(),
     TablePage(),
-    ItemsPage(),
+    CategoryPage(),
     ConfigPage(),
   ];
 
