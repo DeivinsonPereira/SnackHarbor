@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/models/product_model.dart';
 
 class ProductWidget extends StatelessWidget {
   final count = ValueNotifier<int>(0);
+  final ProductModel productModel;
 
-  ProductWidget({Key? key}) : super(key: key);
+  ProductWidget({Key? key, required this.productModel}) : super(key: key);
 
   Widget _buildCardProduct() {
     return Card(
@@ -15,10 +17,10 @@ class ProductWidget extends StatelessWidget {
             const FlutterLogo(
               size: 100,
             ),
-            const Column(
+            Column(
               children: [
                 Text(
-                  'X-BACON',
+                  productModel.name,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
@@ -27,7 +29,7 @@ class ProductWidget extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  'R\$ 15.00',
+                  'R\$ ${productModel.price.toStringAsFixed(2)}',
                   style: TextStyle(
                     color: Colors.red,
                     fontWeight: FontWeight.bold,

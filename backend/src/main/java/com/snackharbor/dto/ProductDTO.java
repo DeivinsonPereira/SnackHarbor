@@ -20,12 +20,15 @@ public class ProductDTO {
     private String imgUrl;
     private BigDecimal price;
     
+    private Long categoryId;
+    
 
 	public ProductDTO(Product entity) {
 		this.id = entity.getId();
 		this.name = entity.getName();
 		this.imgUrl = entity.getImgUrl();
 		this.price = entity.getPrice();
+		this.categoryId = entity.getCategory().getId();
 	}
     
     

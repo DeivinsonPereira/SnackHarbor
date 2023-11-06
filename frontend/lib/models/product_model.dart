@@ -2,26 +2,26 @@
 import 'dart:convert';
 
 class ProductModel {
-  final int codigo;
-  final String nome;
-  final double valor;
+  final int id;
+  final String name;
+  final double price;
 
   ProductModel(
-      {required this.codigo, required this.nome, required this.valor});
+      {required this.id, required this.name, required this.price});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'codigo': codigo,
-      'nome': nome,
-      'valor': valor,
+      'id': id,
+      'name': name,
+      'price': price,
     };
   }
 
   factory ProductModel.fromMap(Map<String, dynamic> map) {
     return ProductModel(
-      codigo: map['codigo'] as int,
-      nome: map['nome'] as String,
-      valor: map['valor'] as double,
+      id: map['id'] as int,
+      name: map['name'] as String,
+      price: map['price'] as double,
     );
   }
 

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/core/app_requisition.dart';
 import 'package:frontend/component/category_widget.dart';
+import 'package:frontend/repositories/table_repository.dart';
 
 class TablePage extends StatelessWidget {
   const TablePage({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class TablePage extends StatelessWidget {
                     final statusString = snapshot.data![index]['status'];
                     final statusEnum = statusStringToEnum(statusString);
                     var valor = snapshot.data![index]['total'];
-                    
+
                     if (valor == 0) {
                       valor = 0.0;
                     } else if (valor is int) {
@@ -58,7 +57,3 @@ class TablePage extends StatelessWidget {
     );
   }
 }
-
-
-
-

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_colors.dart';
-import 'package:frontend/core/app_requisition.dart';
 import 'package:frontend/core/app_textStyles.dart';
 import 'package:frontend/pages/Category/category_page.dart';
+import 'package:frontend/repositories/table_repository.dart';
 
 class ConsumptionPage extends StatelessWidget {
   final int tableId;

@@ -18,7 +18,7 @@ import com.snackharbor.dto.UpdateStatusDTO;
 import com.snackharbor.services.CustomerTableService;
 
 @RestController
-@RequestMapping("/tables")
+@RequestMapping(value = "/tables")
 public class CustomerTableController {
 
 	@Autowired

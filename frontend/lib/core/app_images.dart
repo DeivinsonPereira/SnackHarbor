@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/core/app_requisition.dart';
+import 'package:frontend/repositories/category_repository.dart';
 
 Widget buildImage() {
   return FutureBuilder<List<dynamic>>(

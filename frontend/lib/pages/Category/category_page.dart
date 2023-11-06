@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/core/app_requisition.dart';
 import 'package:frontend/core/app_textStyles.dart';
 import 'package:frontend/pages/product/product_page.dart';
+import 'package:frontend/repositories/category_repository.dart';
 
 class CategoryPage extends StatelessWidget {
   final int tableId;

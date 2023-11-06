@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/component/product_widget.dart';
 import 'package:frontend/core/app_colors.dart';
 import 'package:frontend/core/app_textStyles.dart';
+import 'package:frontend/models/product_model.dart';
 
 class ProductPage extends StatelessWidget {
   final String categoryName;
@@ -18,11 +19,14 @@ class ProductPage extends StatelessWidget {
   Widget _buildBody() {
     return ListView(
       children: [
-        ProductWidget(),
-        ProductWidget(),
-        ProductWidget(),
-        ProductWidget(),
-        ProductWidget(),
+        ProductWidget(
+            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
+        ProductWidget(
+            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
+        ProductWidget(
+            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
+        ProductWidget(
+            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
       ],
     );
   }
