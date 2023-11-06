@@ -1,11 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/product_model.dart';
+import 'package:frontend/repositories/product_repository.dart';
 
 class ProductWidget extends StatelessWidget {
+  final repository = ProductRepository();
   final count = ValueNotifier<int>(0);
   final ProductModel productModel;
 
   ProductWidget({Key? key, required this.productModel}) : super(key: key);
+
+  Widget _buildErrorImage() {
+    return const Center(
+      child: Text('Image not found!'),
+    );
+  }
+
+  Widget _buildLoading() {
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
+  Widget _buildImagemProduto(int categoryId) {
+    return FutureBuilder<List<ProductModel>>(
+        future: repository.getProductByCategoryId(categoryId),
+        builder: (context, snapshot) {
+          if (snapshot.hasData &&
+              snapshot.connectionState == ConnectionState.done) {
+            return Container(
+              width: 100,
+              height: 70,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.network(
+                  productModel.imgUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          }
+          if (snapshot.hasError) {
+            return _buildErrorImage();
+          }
+          return _buildLoading();
+        });
+  }
 
   Widget _buildCardProduct() {
     return Card(
@@ -14,25 +53,31 @@ class ProductWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const FlutterLogo(
-              size: 100,
-            ),
+            _buildImagemProduto(productModel.categoryId),
             Column(
               children: [
-                Text(
-                  productModel.name,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                Container(
+                  width: 150,
+                  child: Text(
+                    productModel.name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Text(
-                  'R\$ ${productModel.price.toStringAsFixed(2)}',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  width: 150,
+                  child: Text(
+                    'R\$ ${productModel.price.toStringAsFixed(2)}',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],

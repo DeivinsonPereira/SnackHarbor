@@ -39,6 +39,7 @@ dependencies:
   http:  
    
   enum_to_string: ^2.0.0
+  dio: ^5.3.3
 
 dev_dependencies:
   flutter_test:

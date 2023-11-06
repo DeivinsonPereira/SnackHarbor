@@ -3,11 +3,13 @@ import 'package:frontend/component/product_widget.dart';
 import 'package:frontend/core/app_colors.dart';
 import 'package:frontend/core/app_textStyles.dart';
 import 'package:frontend/models/product_model.dart';
+import 'package:frontend/repositories/product_repository.dart';
 
 class ProductPage extends StatelessWidget {
   final String categoryName;
   final int tableId;
   final int categoryId;
+  final repository = ProductRepository();
 
   ProductPage({
     super.key,
@@ -16,18 +18,31 @@ class ProductPage extends StatelessWidget {
     required this.categoryId,
   });
 
-  Widget _buildBody() {
+  Widget _buildBody(List<ProductModel> productslist) {
     return ListView(
-      children: [
-        ProductWidget(
-            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
-        ProductWidget(
-            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
-        ProductWidget(
-            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
-        ProductWidget(
-            productModel: ProductModel(id: 1, name: 'Batata', price: 5)),
-      ],
+      children: productslist
+          .map(
+            (model) => ProductWidget(
+              productModel: model,
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  Widget _buildError() {
+    return const Text(
+      'Error: products not found!',
+      style: TextStyle(
+        color: Colors.red,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget _buildLoading() {
+    return Center(
+      child: CircularProgressIndicator(),
     );
   }
 
@@ -46,7 +61,19 @@ class ProductPage extends StatelessWidget {
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
           ),
           iconTheme: const IconThemeData(color: AppColors.secondary)),
-      body: _buildBody(),
+      body: FutureBuilder<List<ProductModel>>(
+        future: repository.getProductByCategoryId(categoryId),
+        builder: (context, snapshot) {
+          if (snapshot.hasData &&
+              snapshot.connectionState == ConnectionState.done) {
+            return _buildBody(snapshot.data!);
+          }
+          if (snapshot.hasError) {
+            return _buildError();
+          }
+          return _buildLoading();
+        },
+      ),
     );
   }
 }
