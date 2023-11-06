@@ -15,10 +15,12 @@ public class OrderDTO {
 
 	private Long id;
 	private Long tableId;
+	private String obs;
 	private MinProductDTO product;
 	
 	public OrderDTO(Order entity) {
         this.id = entity.getId();
+        this.obs = entity.getObs();
         if (entity.getTable() != null) {
             this.tableId = entity.getTable().getId();
         }

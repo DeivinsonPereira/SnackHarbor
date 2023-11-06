@@ -28,4 +28,13 @@ public class CategoryService {
 		}
 			
 	}
+	
+	@Transactional(readOnly=true)
+	public CategoryDTO findById(Long id) {
+		Category dto = repository.findById(id).
+				orElseThrow(() -> new ResourceNotFoundException("Category not found!"));
+		
+		return new CategoryDTO(dto);
+		
+	}
 }

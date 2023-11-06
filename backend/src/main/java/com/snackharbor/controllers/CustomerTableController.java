@@ -45,8 +45,9 @@ public class CustomerTableController {
 	@PostMapping("/{tableId}/add-order/{productId}")
     public ResponseEntity<Void> addOrderToTable(
     		@PathVariable Long tableId, 
-    		@PathVariable Long productId) {
-		service.addOrderToTable(tableId, productId);
+    		@PathVariable Long productId,
+    		@RequestBody String obs) {
+		service.addOrderToTable(tableId, productId, obs);
         return ResponseEntity.ok().build();
     }
 	

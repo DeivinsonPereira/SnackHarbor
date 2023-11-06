@@ -53,3 +53,22 @@ Future clearItemsConsumed(int tableId) async{
     print('Erro ao excluir itens consumidos. Código de status: ${response.statusCode}');
   }
 }
+
+Future<void> addOrderToTable(int tableId, int productId) async {
+  final String apiUrl = "http://sua-api.com/api/$tableId/add-order/$productId";
+  final response = await http.post(Uri.parse(apiUrl));
+  if (response.statusCode == 200) {
+  } else {
+    throw Exception('Falha ao adicionar o pedido à mesa $tableId');
+  }
+}
+
+Future getCategoryById(int categoryId) async {
+  var url = Uri.parse('http://10.0.2.2:8080/categories/$categoryId');
+  var response = await http.get(url);
+  if (response.statusCode == 200) {
+    return jsonDecode(utf8.decode(response.bodyBytes));
+  } else {
+    throw Exception('Category not found.');
+  }
+}

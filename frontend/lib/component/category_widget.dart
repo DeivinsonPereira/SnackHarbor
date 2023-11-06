@@ -53,7 +53,7 @@ class ItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (status == StatusMesa.FREE) {
-          Navigator.of(context).pushNamed('/category', arguments: index);
+          Navigator.of(context).pushNamed('/category', arguments: index + 1);
         } else {
           final mesaId = index;
           Navigator.of(context).push(

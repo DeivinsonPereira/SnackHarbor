@@ -68,7 +68,7 @@ public class CustomerTableService {
 	
 	
 	@Transactional
-	public void addOrderToTable(Long tableId, Long productId) {
+	public void addOrderToTable(Long tableId, Long productId, String obs) {
         CustomerTable table = repository.findById(tableId)
             .orElseThrow(() -> new ResourceNotFoundException("Table not found"));
 
@@ -79,6 +79,7 @@ public class CustomerTableService {
             Order order = new Order();
             order.setTable(table);
             order.setProduct(product);
+            order.setObs(obs);
             
             table.getOrders().add(order);
             

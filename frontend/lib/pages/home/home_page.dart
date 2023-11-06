@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/core/app_textStyles.dart';
 import 'package:frontend/pages/config/config_page.dart';
-import 'package:frontend/pages/items/category_page.dart';
+import 'package:frontend/pages/consumption/consumption_page.dart';
 import 'package:frontend/pages/start/start_page.dart';
 import 'package:frontend/pages/table/table_page.dart';
 
@@ -14,11 +14,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _index = 0;
+  late int categoryPageId;
 
   final _paginas = <Widget>[
     StartPage(),
     TablePage(),
-    CategoryPage(),
+    ConsumptionPage(tableId: 2),
     ConfigPage(),
   ];
 
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.inventory),
-            label: 'Itens',
+            label: 'itens',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
